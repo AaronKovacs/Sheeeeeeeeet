@@ -89,7 +89,7 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     
     open func animate(_ animation: @escaping () -> (), completion: (() -> ())?) {
         UIView.animate(
-            withDuration: 0.3,
+            withDuration: 0.4,
             delay: 0,
             options: [.curveEaseOut],
             animations: animation) { _ in completion?() }
@@ -108,7 +108,7 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     
     open func presentationTransitionStartFrame(for sheet: ActionSheet, in view: UIView) -> CGRect {
         var frame = presentationFrame(for: sheet, in: view) ?? .zero
-        frame.origin.y += 100
+        frame.origin.y += 200
         return frame
     }
     
@@ -123,7 +123,10 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
         var frame = view.frame
         frame.origin.y += frame.height + 100
         let animation = { view.frame = frame }
-        animate(animation) { view.removeFromSuperview() }
+        animate(animation) {
+            view.removeFromSuperview()
+            self.actionSheet = nil
+        }
     }
     
     open func removeBackgroundView() {
@@ -133,7 +136,7 @@ open class ActionSheetDefaultPresenter: ActionSheetPresenter {
     }
     
     open func dismissActionSheet() {
-        actionSheet = nil
+        
         removeActionSheetView()
         removeBackgroundView()
     }

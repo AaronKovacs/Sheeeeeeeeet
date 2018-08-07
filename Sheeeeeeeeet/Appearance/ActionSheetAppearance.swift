@@ -29,6 +29,8 @@ open class ActionSheetAppearance {
     public init() {}
     
     public init(copy: ActionSheetAppearance) {
+        backgroundColor = copy.backgroundColor
+        selectedColor = copy.selectedColor
         cornerRadius = copy.cornerRadius
         contentInset = copy.contentInset
         
@@ -50,6 +52,10 @@ open class ActionSheetAppearance {
     
     
     // MARK: - Properties
+    
+    public var backgroundColor: UIColor = UIColor.groupTableViewBackground
+    
+    public var selectedColor: UIColor = UIColor.white
     
     public var cornerRadius: CGFloat = 10
     

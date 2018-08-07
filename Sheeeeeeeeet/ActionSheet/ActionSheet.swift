@@ -202,6 +202,7 @@ open class ActionSheet: UIViewController {
     
     open lazy var buttonsView: UITableView = {
         let tableView = createTableView(handler: buttonHandler)
+        tableView.backgroundColor = appearance.backgroundColor
         view.addSubview(tableView)
         return tableView
     }()
@@ -216,6 +217,8 @@ open class ActionSheet: UIViewController {
     
     open lazy var itemsView: UITableView = {
         let tableView = createTableView(handler: itemHandler)
+        tableView.backgroundColor = appearance.backgroundColor
+        
         view.addSubview(tableView)
         return tableView
     }()
@@ -298,6 +301,7 @@ fileprivate extension ActionSheet {
         tableView.cellLayoutMarginsFollowReadableWidth = false
         tableView.dataSource = handler
         tableView.delegate = handler
+        tableView.backgroundColor = appearance.backgroundColor
         return tableView
     }
     

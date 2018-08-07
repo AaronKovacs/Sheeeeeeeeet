@@ -21,6 +21,7 @@ open class ActionSheetItemAppearance {
         separatorInsets = copy.separatorInsets
         textColor = copy.textColor
         tintColor = copy.tintColor
+        backgroundColor = copy.backgroundColor
         subtitleFont = copy.subtitleFont
         subtitleTextColor = copy.subtitleTextColor
     }
@@ -33,6 +34,7 @@ open class ActionSheetItemAppearance {
     public var separatorInsets: UIEdgeInsets = .zero
     public var textColor: UIColor?
     public var tintColor: UIColor?
+    public var backgroundColor: UIColor = UIColor.white
     public var subtitleFont: UIFont?
     public var subtitleTextColor: UIColor?
 }

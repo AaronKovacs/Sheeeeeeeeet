@@ -54,7 +54,10 @@ extension ActionSheetItemHandler: UITableViewDataSource {
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return items[indexPath.row].cell(for: tableView)
+        let cell: UITableViewCell = items[indexPath.row].cell(for: tableView)
+        cell.selectedBackgroundView = UIView.init()
+        cell.selectedBackgroundView?.backgroundColor = ActionSheetAppearance.standard.backgroundColor
+        return cell
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
